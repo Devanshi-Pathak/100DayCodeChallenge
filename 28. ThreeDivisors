@@ -1,0 +1,24 @@
+QUESTION:
+Given an integer n, return true if n has exactly three positive divisors. Otherwise, return false.
+An integer m is a divisor of n if there exists an integer k such that n = k * m.
+CODE:
+class Solution:
+    def isThree(self, n: int) -> bool:
+        if n == 1: # edge case
+            return False
+
+        sqrt = int(n**.5)
+        return sqrt*sqrt == n and all(n%a for a in range(2, sqrt))
+EXAMPLE:
+Example 1:
+Input: n = 2
+Output: false
+Explantion: 2 has only two divisors: 1 and 2.
+
+Example 2:
+Input: n = 4
+Output: true
+Explantion: 4 has three divisors: 1, 2, and 4.
+ 
+CONSTRAINTS:
+1 <= n <= 104
